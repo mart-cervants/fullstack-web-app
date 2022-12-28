@@ -11,9 +11,15 @@ const App = () => {
   const handlesearchSubmit = (e) => {
     e.preventDefault();
     console.log(word);
+    fetch(`https://api.unsplash.com/photos/random?${word}&client_id=${UNSPLASH_KEY}`)
+      .then((res) => res.json())
+      .then((data) => { 
+        console.log(data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
-
-  console.log(REACT_APP_UNSPLASH_KEY)
 
   return (
     <div className="App">
